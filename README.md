@@ -1,7 +1,19 @@
 
-## Prescription App (Compose)
+# Prescription App (MVVM with Jetpack Compose)
 
-This is a modular Android application designed with clean architecture principles. It provides a user-friendly interface for viewing medical data, allowing users to browse and view their prescription items.
+This is a simple Kotlin-based Android application following the MVVM architecture pattern. The app uses Jetpack Compose for UI, Hilt for dependency injection, Room for local storage, and a mock API for retrieving medical data. The app is designed to demonstrate various Android development skills, including UI design, state management, database integration, and testing.
+
+## Features
+
+1. **Login Screen**: A simple login screen where users can input their username or email.
+
+2. **Personalized Greeting**: After logging in, the app greets the user based on the time of day (Morning, Afternoon, or Evening) and displays the username/email entered in the login screen.
+
+3. **Medicine List**: The app displays a list of medicines, fetched from a mock API (using Mocky.io), showing the name, dose, and strength of each medicine. Each medicine is displayed in a card. Tapping on any card opens a detailed view with the same data.
+
+4. **Room Database**: The app uses Room DB to store any relevant data, such as the logged-in user's details and medicine data for offline access.
+
+5. **Unit Testing**: Unit tests for the viewmodels and repositories are written to validate use cases in the app.
 
 ### Screenshots
 
@@ -40,6 +52,37 @@ This follows a modular architecture adhering to clean architecture principles an
 
 - Includes common code shared among features and other core modules (e.g., :core:design, :core:networking, :core:utils, :core:database).
   Can depend on one another but should avoid cyclical dependencies.
+
+## How to Build and Run
+
+1. Clone the repository to your local machine:
+   ```bash
+   git clone https://github.com/yourusername/prescription-app.git
+   ```
+2. Open the project in Android Studio.
+3. Build and run the app on an emulator or physical device.
+
+### Unit Tests
+
+- Three unit tests are written to ensure the functionality of core use cases.
+- Tests can be found in the `test` directory within the app module.
+
+### Build Process
+
+1. **Install dependencies**:
+  - Ensure you have the required SDK versions and dependencies.
+
+2. **Run Unit Tests**:
+  - Execute tests using the following Gradle command:
+   ```bash
+   ./gradlew testDebugUnitTest
+   ```
+
+3. **Build APK**:
+  - To build the APK:
+   ```bash
+   ./gradlew :app:assembleDebug
+   ```
 
 #### Libraries and Tools
 - Github Actions: Automates CI/CD workflows and manages pipelines for the project.
