@@ -1,12 +1,7 @@
 pluginManagement {
+    includeBuild("build-logic")
     repositories {
-        google {
-            content {
-                includeGroupByRegex("com\\.android.*")
-                includeGroupByRegex("com\\.google.*")
-                includeGroupByRegex("androidx.*")
-            }
-        }
+        google()
         mavenCentral()
         gradlePluginPortal()
     }
@@ -19,6 +14,12 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "Prescription App"
+rootProject.name = "Prescription"
 include(":app")
- 
+include(":features")
+include(":features:prescription")
+include(":core")
+include(":core:networking")
+include(":core:design")
+include(":core:utils")
+include(":core:database")
