@@ -1,5 +1,11 @@
 package com.prescription.features.networking.repository
 
+import ApiResponse
+import ClassNameEntry
+import Drug
+import Medication
+import MedicationClass
+import Problem
 import com.prescription.features.networking.api.MedicineApiService
 import com.prescription.features.networking.util.APIResource
 import io.mockk.coEvery
@@ -17,55 +23,54 @@ import retrofit2.HttpException
 class MedicineRepositoryTest {
 
     private lateinit var apiService: MedicineApiService
-    private lateinit var productRepository: com.prescription.features.networking.repository.MedicineRepository
+    private lateinit var medicineRepository: MedicineRepository
 
     @Before
     fun setUp() {
         apiService = mockk()
-        productRepository =
-            com.prescription.features.networking.repository.MedicineRepository(apiService)
+        medicineRepository = MedicineRepository(apiService)
     }
 
     @Test
-    fun `getProducts returns success response`() = runTest {
-
-        val mockResponse = listOf(
-            ProductItemResponse(
-                id = 1,
-                name = "Product 1",
-                description = "Description 1",
-                price = 10.0,
-                currencyCode = "USD",
-                currencySymbol = "$",
-                quantity = 5,
-                imageLocation = "image1.png",
-                status = "Available"
-            ),
-            ProductItemResponse(
-                id = 2,
-                name = "Product 2",
-                description = "Description 2",
-                price = 20.0,
-                currencyCode = "USD",
-                currencySymbol = "$",
-                quantity = 10,
-                imageLocation = "image2.png",
-                status = "Available"
+    fun `getMedicalData returns success response`() = runTest {
+        val mockResponse = ApiResponse(
+            problems = listOf(
+                mapOf(
+                    "problem1" to listOf(
+                        Problem(
+                            medications = listOf(
+                                Medication(
+                                    medicationsClasses = listOf(
+                                        MedicationClass(
+                                            className = listOf(
+                                                ClassNameEntry(associatedDrug = listOf(Drug(name = "Drug1", dose = "10mg", strength = "100mg")), associatedDrug2 = null)
+                                            ),
+                                            className2 = null
+                                        )
+                                    )
+                                )
+                            ),
+                            labs = null
+                        )
+                    )
+                )
             )
         )
-        val mockResource = APIResource.Success(mockResponse)
+
         coEvery { apiService.getMedicalData() } returns mockResponse
 
-        val result = productRepository.getMedicalData()
+        val result = medicineRepository.getMedicalData()
+
+        val mockResource = APIResource.Success(mockResponse)
 
         assertEquals(mockResource, result)
         coVerify { apiService.getMedicalData() }
     }
 
     @Test
-    fun `getProducts returns error response`() = runTest {
-        val errorBody = Response.error<List<ProductItemResponse>>(404, mockk(relaxed = true)).errorBody()
-        val exception = HttpException(Response.error<List<ProductItemResponse>>(404, errorBody))
+    fun `getMedicalData returns error response`() = runTest {
+        val errorBody = Response.error<ApiResponse>(404, mockk(relaxed = true)).errorBody()
+        val exception = HttpException(Response.error<ApiResponse>(404, errorBody))
 
         coEvery { apiService.getMedicalData() } throws exception
 
@@ -75,7 +80,7 @@ class MedicineRepositoryTest {
             errorBody = errorBody
         )
 
-        val result = productRepository.getMedicalData()
+        val result = medicineRepository.getMedicalData()
 
         assertEquals(mockResource, result)
         coVerify { apiService.getMedicalData() }
