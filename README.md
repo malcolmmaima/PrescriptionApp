@@ -57,7 +57,7 @@ This follows a modular architecture adhering to clean architecture principles an
 
 1. Clone the repository to your local machine:
    ```bash
-   git clone https://github.com/yourusername/prescription-app.git
+   git clone https://github.com/malcolmmaima/PrescriptionApp.git
    ```
 2. Open the project in Android Studio.
 3. Build and run the app on an emulator or physical device.
