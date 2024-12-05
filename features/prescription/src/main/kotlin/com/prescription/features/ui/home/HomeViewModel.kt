@@ -79,7 +79,7 @@ class HomeViewModel @Inject constructor(
         }
     }
 
-    private fun fetchLoggedInUser() {
+    fun fetchLoggedInUser() {
         viewModelScope.launch {
             userRepository.getLoggedInUser().collect { userEntity ->
                 _user.value = userEntity
@@ -109,7 +109,6 @@ class HomeViewModel @Inject constructor(
     private fun saveMedicalDataToDatabase(medicalData: ApiResponse) {
         viewModelScope.launch(Dispatchers.IO) {
             try {
-                Log.d("HomeViewModel", "Save data to local: $medicalData")
                 medicalData.problems.forEach { problemMap ->
                     problemMap.forEach { (conditionName, problemsList) ->
                         problemsList.forEach { problem ->
