@@ -1,23 +1,24 @@
-## Carry Shop (Compose)
 
-This is a modular Android application designed with clean architecture principles. It provides a user-friendly interface for managing products and a shopping cart, allowing users to browse, view, and update their cart items.
+## Prescription App (Compose)
+
+This is a modular Android application designed with clean architecture principles. It provides a user-friendly interface for viewing medical data, allowing users to browse and view their prescription items.
 
 ### Screenshots
 
 ##### Light
-<a href="url"><img src=https://github.com/malcolmmaima/e-commerce-compose/blob/main/screenshots/Screenshot_20240803_132821.png height="450"></a>
-<a href="url"><img src=https://github.com/malcolmmaima/e-commerce-compose/blob/main/screenshots/Screenshot_20240803_132543.png height="450"></a>
-<a href="url"><img src=https://github.com/malcolmmaima/e-commerce-compose/blob/main/screenshots/Screenshot_20240803_132625.png height="450"></a>
-<a href="url"><img src=https://github.com/malcolmmaima/e-commerce-compose/blob/main/screenshots/Screenshot_20240803_132719.png height="450"></a>
+<a href="url"><img src=https://github.com/malcolmmaima/PrescriptionApp/blob/main/screenshots/Screenshot_20240803_132821.png height="450"></a>
+<a href="url"><img src=https://github.com/malcolmmaima/PrescriptionApp/blob/main/screenshots/Screenshot_20240803_132543.png height="450"></a>
+<a href="url"><img src=https://github.com/malcolmmaima/PrescriptionApp/blob/main/screenshots/Screenshot_20240803_132625.png height="450"></a>
+<a href="url"><img src=https://github.com/malcolmmaima/PrescriptionApp/blob/main/screenshots/Screenshot_20240803_132719.png height="450"></a>
 
 ##### Dark
-<a href="url"><img src=https://github.com/malcolmmaima/e-commerce-compose/blob/main/screenshots/Screenshot_20240803_132932.png height="450"></a>
-<a href="url"><img src=https://github.com/malcolmmaima/e-commerce-compose/blob/main/screenshots/Screenshot_20240803_132840.png height="450"></a>
-<a href="url"><img src=https://github.com/malcolmmaima/e-commerce-compose/blob/main/screenshots/Screenshot_20240803_132859.png height="450"></a>
-<a href="url"><img src=https://github.com/malcolmmaima/e-commerce-compose/blob/main/screenshots/Screenshot_20240803_132912.png height="450"></a>
+<a href="url"><img src=https://github.com/malcolmmaima/PrescriptionApp/blob/main/screenshots/Screenshot_20240803_132932.png height="450"></a>
+<a href="url"><img src=https://github.com/malcolmmaima/PrescriptionApp/blob/main/screenshots/Screenshot_20240803_132840.png height="450"></a>
+<a href="url"><img src=https://github.com/malcolmmaima/PrescriptionApp/blob/main/screenshots/Screenshot_20240803_132859.png height="450"></a>
+<a href="url"><img src=https://github.com/malcolmmaima/PrescriptionApp/blob/main/screenshots/Screenshot_20240803_132912.png height="450"></a>
 
 ### Architecture
-This follows a modular architecture adhering to clean architecture principles and the MVVM (Model-View-ViewModel) pattern. 
+This follows a modular architecture adhering to clean architecture principles and the MVVM (Model-View-ViewModel) pattern.
 
 ### Architecture Overview
 
@@ -28,17 +29,17 @@ This follows a modular architecture adhering to clean architecture principles an
 #### App Module:
 
 - Depends on all relevant feature modules (:features:prescription).
-  
+
 #### Feature Modules:
 
 - Represents individual features of the app (:features:prescription, :feature:anotherfeature).
 - It should not depend on other feature modules.
 - Depends on core modules for shared functionality.
-  
+
 #### Core Modules:
 
 - Includes common code shared among features and other core modules (e.g., :core:design, :core:networking, :core:utils, :core:database).
-Can depend on one another but should avoid cyclical dependencies. 
+  Can depend on one another but should avoid cyclical dependencies.
 
 #### Libraries and Tools
 - Github Actions: Automates CI/CD workflows and manages pipelines for the project.
@@ -58,4 +59,4 @@ Can depend on one another but should avoid cyclical dependencies.
 - Moshi (1.15.0): Converts JSON into Kotlin objects and vice versa.
 
 #### App Artifacts
-The app APK can be found from the latest successful action on the GitHub Actions tab <a href="https://github.com/malcolmmaima/e-commerce-compose/actions">Actions</a>
+The app APK can be found from the latest successful action on the GitHub Actions tab <a href="https://github.com/malcolmmaima/PrescriptionApp/actions">Actions</a>
