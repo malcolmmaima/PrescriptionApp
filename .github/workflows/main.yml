@@ -1,4 +1,4 @@
-name: Build Shop
+name: Build Prescription App
 
 on:
   push:
@@ -35,7 +35,7 @@ jobs:
       - name: Generate Debug APK
         run: ./gradlew :app:assembleDebug --stacktrace
 
-      - name: Upload debug Shop apk
+      - name: Upload debug Prescription apk
         uses: actions/upload-artifact@v3
         with:
           name: app-debug.apk
