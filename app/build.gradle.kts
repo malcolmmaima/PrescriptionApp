@@ -1,46 +1,55 @@
+import java.io.ByteArrayOutputStream
+import org.gradle.api.GradleException
+
 plugins {
-    alias(libs.plugins.android.application)
-    alias(libs.plugins.kotlin.android)
+    id("prescription.app")
+    id("prescription.hilt")
+    id("prescription.app.compose")
+    id("prescription.app.network")
 }
 
 android {
-    namespace = "com.malcolmmaima.prescriptionapp"
-    compileSdk = 34
+    namespace = "com.prescription.app"
 
     defaultConfig {
-        applicationId = "com.malcolmmaima.prescriptionapp"
-        minSdk = 24
-        targetSdk = 34
-        versionCode = 1
-        versionName = "1.0"
+        applicationId = "com.prescription.app"
 
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
-    }
+        var versionCode: Int
+        val bytes = ByteArrayOutputStream()
+        try {
+            project.exec {
+                commandLine = "git rev-list HEAD --count".split(" ")
+                standardOutput = bytes
+            }
+            versionCode = String(bytes.toByteArray()).trim().toInt() + 1
+        } catch (e: Exception) {
+            throw GradleException("Failed to get Git commit count", e)
+        }
 
-    buildTypes {
-        release {
-            isMinifyEnabled = false
-            proguardFiles(
-                getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro"
-            )
+        versionName = "0.0.$versionCode"
+
+        vectorDrawables {
+            useSupportLibrary = true
+        }
+
+        buildTypes {
+            debug {
+                versionNameSuffix = "-debug"
+                applicationIdSuffix = ".debug"
+            }
         }
     }
-    compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_11
-        targetCompatibility = JavaVersion.VERSION_11
-    }
-    kotlinOptions {
-        jvmTarget = "11"
+
+    packaging {
+        resources {
+            excludes += "/META-INF/{AL2.0,LGPL2.1}"
+        }
     }
 }
 
 dependencies {
-
-    implementation(libs.androidx.core.ktx)
-    implementation(libs.androidx.appcompat)
-    implementation(libs.material)
-    testImplementation(libs.junit)
-    androidTestImplementation(libs.androidx.junit)
-    androidTestImplementation(libs.androidx.espresso.core)
+    implementation(project(":core:design"))
+    implementation(project(":features:prescription"))
+    implementation(project(":core:utils"))
+    implementation(project(":core:database"))
 }

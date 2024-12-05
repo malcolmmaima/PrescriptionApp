@@ -1,0 +1,53 @@
+import com.android.build.api.dsl.ApplicationExtension
+import com.prescription.configureKotlinAndroid
+import com.prescription.libs
+import org.gradle.api.Plugin
+import org.gradle.api.Project
+import org.gradle.kotlin.dsl.configure
+import org.gradle.kotlin.dsl.dependencies
+
+class AndroidApplicationConventionPlugin : Plugin<Project> {
+    override fun apply(target: Project) {
+        with(target) {
+            with(pluginManager) {
+                apply("com.android.application")
+                apply("org.jetbrains.kotlin.android")
+            }
+
+
+            extensions.configure<ApplicationExtension> {
+
+                configureKotlinAndroid(this)
+
+                defaultConfig {
+                    targetSdk = 34
+                }
+
+                buildFeatures {
+                    buildConfig = true
+                }
+
+                buildTypes {
+
+                    debug {
+                        applicationIdSuffix = ".debug"
+                        versionNameSuffix = ".debug"
+                        isMinifyEnabled = false
+                    }
+                }
+
+            }
+
+            dependencies {
+                add("implementation", libs.findLibrary("timber").get())
+                add("implementation", libs.findLibrary("core.splashscreen").get())
+                add("implementation", libs.findLibrary("core.ktx").get())
+                add("implementation", libs.findLibrary("appcompat").get())
+                add("implementation", libs.findLibrary("material").get())
+                add("implementation", libs.findLibrary("bcrypt").get())
+                add("implementation", libs.findLibrary("androidx.ui.text.android").get())
+            }
+        }
+
+    }
+}
