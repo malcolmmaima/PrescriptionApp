@@ -14,7 +14,13 @@ import com.prescription.database.entities.ProblemEntity
 import com.prescription.database.entities.UserCredentialEntity
 
 @Database(
-    entities = [ProblemEntity::class, MedicationEntity::class, DrugEntity::class, LabEntity::class, UserCredentialEntity::class],
+    entities = [
+        ProblemEntity::class,
+        MedicationEntity::class,
+        DrugEntity::class,
+        LabEntity::class,
+        UserCredentialEntity::class
+    ],
     version = 1,
     exportSchema = false
 )
