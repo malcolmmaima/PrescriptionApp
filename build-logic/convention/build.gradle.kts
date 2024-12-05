@@ -7,6 +7,10 @@ java {
     sourceCompatibility = JavaVersion.VERSION_21
     targetCompatibility = JavaVersion.VERSION_21
 
+    toolchain {
+        languageVersion.set(JavaLanguageVersion.of(21))
+    }
+
     dependencies {
         compileOnly(libs.android.gradle)
         compileOnly(libs.kotlin.gradle)
