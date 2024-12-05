@@ -18,23 +18,23 @@ This is a simple Kotlin-based Android application following the MVVM architectur
 ### Screenshots
 
 ##### Light
-<a href="url"><img src=https://github.com/malcolmmaima/PrescriptionApp/blob/main/screenshots/Screenshot_20240803_132821.png height="450"></a>
-<a href="url"><img src=https://github.com/malcolmmaima/PrescriptionApp/blob/main/screenshots/Screenshot_20240803_132543.png height="450"></a>
-<a href="url"><img src=https://github.com/malcolmmaima/PrescriptionApp/blob/main/screenshots/Screenshot_20240803_132625.png height="450"></a>
-<a href="url"><img src=https://github.com/malcolmmaima/PrescriptionApp/blob/main/screenshots/Screenshot_20240803_132719.png height="450"></a>
+<a href="url"><img src=https://github.com/user-attachments/assets/896fbbfe-7d6b-4ae6-9c54-cd36a15800d3 height="450"></a>
+<a href="url"><img src=https://github.com/user-attachments/assets/337add99-6963-4407-b88f-88715d5df050 height="450"></a>
+<a href="url"><img src=https://github.com/user-attachments/assets/2e55e0d3-b2bf-4a47-8ee2-a849d40e693a height="450"></a>
+<a href="url"><img src=https://github.com/user-attachments/assets/0e180e7b-d0a0-4b9e-b45a-c740dbd08ece height="450"></a>
 
 ##### Dark
-<a href="url"><img src=https://github.com/malcolmmaima/PrescriptionApp/blob/main/screenshots/Screenshot_20240803_132932.png height="450"></a>
-<a href="url"><img src=https://github.com/malcolmmaima/PrescriptionApp/blob/main/screenshots/Screenshot_20240803_132840.png height="450"></a>
-<a href="url"><img src=https://github.com/malcolmmaima/PrescriptionApp/blob/main/screenshots/Screenshot_20240803_132859.png height="450"></a>
-<a href="url"><img src=https://github.com/malcolmmaima/PrescriptionApp/blob/main/screenshots/Screenshot_20240803_132912.png height="450"></a>
+<a href="url"><img src=https://github.com/user-attachments/assets/fc2dc345-b2e8-4a7b-9a5c-47b6a11fc16b height="450"></a>
+<a href="url"><img src=https://github.com/user-attachments/assets/c4f3367c-9cfb-4618-bce9-1dd2f535ce6d height="450"></a>
+<a href="url"><img src=https://github.com/user-attachments/assets/b0d14d39-9cc2-4631-a9ed-8b2c0eec9c99 height="450"></a>
+
 
 ### Architecture
 This follows a modular architecture adhering to clean architecture principles and the MVVM (Model-View-ViewModel) pattern.
 
 ### Architecture Overview
 
-<img width="901" alt="image" src="https://github.com/user-attachments/assets/7946fb17-cf16-4219-8c70-bfd1ba08653d">
+<img width="450" alt="image" src="https://github.com/user-attachments/assets/c44252cf-da55-44a7-8517-c0e90a556482">
 
 
 ### Modules
@@ -102,4 +102,4 @@ This follows a modular architecture adhering to clean architecture principles an
 - Moshi (1.15.0): Converts JSON into Kotlin objects and vice versa.
 
 #### App Artifacts
-The app APK can be found from the latest successful action on the GitHub Actions tab <a href="https://github.com/malcolmmaima/PrescriptionApp/actions">Actions</a>
+The app APK can be found from the latest successful action on the GitHub Actions tab, Scroll down to artifacts <a href="https://github.com/malcolmmaima/PrescriptionApp/actions">Actions</a>
