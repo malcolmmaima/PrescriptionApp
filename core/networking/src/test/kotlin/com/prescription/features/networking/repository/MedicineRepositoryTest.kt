@@ -86,9 +86,3 @@ class MedicineRepositoryTest {
         coVerify { apiService.getMedicalData() }
     }
 }
-
-
-
-
-
-
