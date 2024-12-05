@@ -47,7 +47,7 @@ class ConditionDetailsViewModelTest {
     @Test
     fun `fetchProblemDetails should update uiState with success when problem and drugs are found`() = runTest {
         val problemId = "1"
-        val problem = ProblemEntity(id = 1, name = "Problem 1") // Adjust according to your entity
+        val problem = ProblemEntity(id = 1, name = "Problem 1")
         val drugs = listOf(DrugEntity(name = "Drug 1", medicationId = 1, dose = "", strength = "500 mg"))
 
         coEvery { repository.getProblemById(problemId) } returns flow { emit(problem) }

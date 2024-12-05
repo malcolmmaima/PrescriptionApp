@@ -43,10 +43,9 @@ fun SettingsScreen(
             .fillMaxSize()
             .padding(16.dp)
             .padding(top = 48.dp),
-        verticalArrangement = Arrangement.SpaceBetween // Space out items
+        verticalArrangement = Arrangement.SpaceBetween
     ) {
         Column {
-            // App Version Row
             Row(
                 modifier = Modifier
                     .fillMaxWidth()
@@ -61,7 +60,6 @@ fun SettingsScreen(
             Divider()
         }
 
-        // Logout Button
         Button(
             onClick = { showLogoutDialog.value = true },
             modifier = Modifier
