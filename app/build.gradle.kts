@@ -14,6 +14,7 @@ android {
     defaultConfig {
         applicationId = "com.prescription.app"
 
+        val fallbackVersionCode = 1
         var versionCode: Int
         val bytes = ByteArrayOutputStream()
         try {
@@ -23,7 +24,8 @@ android {
             }
             versionCode = String(bytes.toByteArray()).trim().toInt() + 1
         } catch (e: Exception) {
-            throw GradleException("Failed to get Git commit count", e)
+            logger.warn("Failed to get Git commit count: ${e.message}. Using fallback version code $fallbackVersionCode.")
+            versionCode = fallbackVersionCode
         }
 
         versionName = "0.0.$versionCode"
