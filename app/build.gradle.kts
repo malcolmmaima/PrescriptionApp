@@ -1,5 +1,4 @@
 import java.io.ByteArrayOutputStream
-import org.gradle.api.GradleException
 
 plugins {
     id("prescription.app")
@@ -24,7 +23,10 @@ android {
             }
             versionCode = String(bytes.toByteArray()).trim().toInt() + 1
         } catch (e: Exception) {
-            logger.warn("Failed to get Git commit count: ${e.message}. Using fallback version code $fallbackVersionCode.")
+            logger.warn(
+                "Failed to get Git commit count: " +
+                    "${e.message}. Using fallback version code $fallbackVersionCode."
+            )
             versionCode = fallbackVersionCode
         }
 
